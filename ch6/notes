@@ -1,0 +1,32 @@
+====================================Chapter 6 =================================
+                                  Value Methods
+
+All the methods we have written so far have been void; that is, they dont return
+values. In this chapter, we'll write methods that return values, which we call
+value methods.
+
+
+6.1: Return values
+
+  Compared to void methods, value methods differ in two ways:
+    1. They declare the type of the return value (called the return type)
+    2. They use at least one return statement to provide a return value
+
+    Note that if you put return statements inside a conditional statement, you
+    have to make sure that every possible path through the program reaches a return statement.
+
+
+  6.2: Incremental Development
+
+    Incremental development is a software development process in which:
+      1. Start with a working program and make small, incremental changes. At
+        any point, if there is an error, you will know where to look.
+      2. Use variables to hold intermediate values so you can check them with print statements
+      3. Once the program is working, you can consolidate multiple statements into
+        compound expressions
+
+  6.3: Method composition
+
+    Functional decomposition: breaking a complex computation into simple methods,
+      testing the methods in isolation, and then composing the methods to perform
+      the computation

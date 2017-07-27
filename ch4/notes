@@ -1,0 +1,82 @@
+================================Chapter 4======================================
+                              Void Methods
+
+Beginners often wonder why it is worth the trouble to create new methods.
+There are many reasons, but to illustrate a few:
+    -Creating a new method gives you an opportunity to give a name to a
+    group of statements, which makes code easier to read and understand.
+    -Introducting new methods can make a program smaller by eliminating
+    repetitive code
+    -A common problem solving technique is to break tasks down into subproblems.
+    Methods allow you to focus on each subproblem in isolation, and then
+    compose them into a complete solution
+
+
+
+Flow of Execution
+  -the Flow of Execution always begins at the first statement of main,
+  regardless of where it is in the source file. Statements are executed one at a time,
+  in order, until you reach a method invocation, which you can think of as a detour.
+  Instead of going to the next statement, you jump to the first line of the invoked method,
+  execute all the statements there, and then come back and pick up exactly where you left off.
+
+
+    => All this means is when reading a program, dont read from top to bottom.
+    Follow the flow of execution, ie from the first line of the main on :)
+
+
+
+
+Parameters and Arguements
+  Some of the methods we have used require arguements, which are the values you provide
+  when you invoke the method.
+    => the Math.sin() method takes a double as an arguement.
+
+  **When you USE a method, you PROVIDE the arguments.
+  **When you WRITE a method, you NAME the parameters.
+
+
+
+
+  Multiple Parameters
+    Here is an example of a method that takes two parameters:
+
+
+        public static void printTime(int hour, int minute){
+          System.out.print(hour);
+          System.out.print(":");
+          System.out.println(minute);
+        }
+
+
+
+    In the parameter list, it may be tempting to write:
+
+          public static void printTime(int hour, minute)
+
+    But that format (without the second int) is only legal for variable declarations.
+    In parameter lists, you need to specify the type of each variable separately.
+
+
+    To invoke this method, we have to provide the arguments, like this:
+
+
+      int hour = 11;
+      int minute = 30;
+      printTime(hour, minute);      =>11:30
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    

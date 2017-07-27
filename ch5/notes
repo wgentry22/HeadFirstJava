@@ -1,0 +1,59 @@
+===============================Chapter 5=======================================
+                        Conditionals and Logic
+
+
+Relational operators are used to check conditions like whether two values
+are equal. The following expressions show how they are used:
+  x == y      //x is equal to y
+  x != y      //x is not equal to y
+  x > y       //x is greater than y
+  x < y       //x is less than y
+  x >= y      //x is greater than or equal to y
+  x <= y      //x is less than or equal to y
+
+
+  **Note that there is no such thing as => or =< in Java.
+
+
+Recall DeMorgan's Laws:
+
+  !(A && B) == !A || !B
+  !(A || B) == !A && !B
+
+
+
+
+Flag Variables
+  To store a true or false value, you need a boolean variable. You can create one
+  like this:
+
+      boolean flag;                 =>variable declaration
+      flag = true;                  =>variable assignment
+      boolean testResult = false;   =>variable declaration and assignment
+
+
+  Since relational operators evaluate to a boolean value, you can store the
+  result of a comparison in a variable.
+
+      boolean evenFlag = (n % 2 == 0);  =>true if n is even
+      boolean positiveFlag = (x > 0);   => true if x is positive
+
+
+  A variable defined in this way is called a FLAG, because it signals or "flags"
+  the presence or absence of a condition.
+
+
+
+
+Return Statement
+  The return statement allows you to terminate a method before you reach the end of it.
+  One reason to use return is if you detect an error condition:
+
+      public static void printLogarithm(double x){
+        if (x <= 0.0){
+          System.err.println("Error: x must be positive.");
+          return;
+        }
+        double result = Math.log(x);
+        System.out.printf("The log of x is %.4f.", result);
+      }

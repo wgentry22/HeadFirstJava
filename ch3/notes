@@ -1,0 +1,90 @@
+====================== Chapter 3 ===============================================
+                    Input and Output
+
+We have been using System.out.println for a while, but might not have realized
+what it  means. 'System' is a class that provides related to the environment
+where the programs run.
+    -Package: a collection of related classes
+
+
+The System class also provides the special value System.in, which is an InputStream
+that provides methods for reading input from the keyboard.
+  For example, Scanner is a class that provides methods for inputting words,
+  numbers, and other data. Scanner is provided by java.util, which is a
+  package that contains classes so useful they are called "utility classes".
+
+  Before using Scanner, you have to import it like so: import java.util.Scanner;
+    ---the import statement tells the compiler that when you say Scanner, you
+    mean the one coming from java.util. Its necessary because there may be another
+    class named Scanner in another package.
+
+  By convention, import statements are usually at the beginning of the file.
+
+  Next, you have to create a Scanner:
+      Scanner in = new Scanner(System.in);
+  This line declares a Scanner variable named in and creates a new Scanner
+  that takes input from System.in
+
+  Scanner provides a method called nextLine that reads a line of input from the
+  keyboard and returns a string. The following example reads two lines and repeats
+  them back to the user.
+
+
+
+  import java.util.Scanner;
+
+  public class Echo{
+    public static void main(String[] args){
+    String line;
+    Scanner in = new Scanner(System.in);
+
+    System.out.println("Type something:");
+    line = in.nextLine();
+    System.out.println("You said: " + line);
+
+
+    System.out.println("Type something else:");
+    line = in.nextLine();
+    System.out.println("You also said: " + line);
+    }
+  }
+
+
+To review:
+  A package is a collection of classes, which define methods
+  Methods contain statements, some of which contain expressions
+  Expressions are made up of TOKENS, which are the basic elements of a program
+      including numbers, variable names, operators, keywords, punctuation(like parentheses, braces, semicolons)
+
+It is important to note:
+  There is a major difference between the Java Language, which defines the syntax
+  and meaning of the elements, and the Java Library, which provides the built-in classes
+
+
+
+Declaring that a variable is final means it cannot be reassigned once initialized;
+This practice is useful for the mathematical definition of a constant.
+    ex: final double CM_PER_INCH = 2.54;
+    By convention, names for constants are all uppercase with an underscore between words
+
+
+System.out provides another method, printf, that gives you more control over the format of the output.
+the 'f' in printf stands for 'formatted'.
+  ex: System.out.printf("Four thirds = %.3f", 4.0 / 3.0);
+  => the result is: Four thirds = 1.333
+
+  for this example, the value in the parentheses is a 'format string' that specifies
+  how the output should be displayed. This format string contains ordinary text
+  followed by a 'format specifier', which is a special sequence that starts with
+  a percent sign. the format specifier %.3f indicates that the following value
+  should be displayed as floating-point, rounded to three decimal points.
+
+
+  NOTE THAT: printf does not append a new line. So, format strings often end with
+  a newline character
+
+  Example format specifiers:
+    %d => decimal integer
+    %08d => padded with zeros, at least 8 digits wide
+    %f => floating-point
+    %.2f => floating-point rounded to 2 decimal points

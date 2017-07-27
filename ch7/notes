@@ -1,0 +1,156 @@
+=================================== Chapter 7 ==================================
+                                  Loops and Iterations
+
+Running the same code multiple times is called ITERATION. Although recursion can
+be used to iterate, it can take some getting used to. Java provides language features
+that make iteration much easier: the WHILE and FOR loop
+
+
+
+7.1: The while statement
+  The flow of execution for a while statement is:
+        Evaluate the condition, yielding true or false
+        if the condition is false, skip the body and go to the next statement
+        if the condition is true, execute the body and go back to step one
+
+
+  Example: Rewriting the Blastoff program
+
+    public static void Blastoff(int n){
+      while (n > 0){
+        System.out.println(n);
+        n--;
+      }
+        System.out.println("Blastoff!");
+    }
+
+  The above can be read as "While n is greater than zero, print the value of
+  n and the reduce the value of n by 1. When you get to zero, print Blastoff!"
+
+
+  The body of the loop should change the value of one or more variables so that,
+  eventually, the condition becomes false and the loop terminates.
+
+
+
+7.2: Generating Tables
+
+  Loops are good for generating and displaying tabular data.
+  Example: a Log Table
+
+  int i = 1;
+  while (i < 10){
+    double x = 1;
+    System.out.println(x + "   " + Math.log(x));
+    i++;
+  }
+
+
+
+
+7.3: Encapsulation and Generalization
+  Encapsulation and Generalization is another program development process.
+  The steps are:
+
+    1. Write a few lines of code in main or another method, then test them
+    2. When they are working, wrap them in a new method, and test again
+    3. If its appropriate, replace literal values with variables and parameters
+
+
+    => the second step is called encapsulation
+    => the third step is called generalization
+
+
+
+7.5: The for statement
+  For loops have three components in parentheses, seperated by semi colons:
+    the initializer, the condition, the update
+
+      1. The initializer runs once at the very beginning of the loop
+      2. The condition is checked each time through the loop. If it is false,
+      the loop ends. Otherwise, the body of the loop is executed (again).
+      3. At the end of each iteration, the update runs, and we go back to step 2.
+
+  The for loop is often easier to read because it puts all the loop-related
+  statements at the top of the loop.
+
+  There is one difference between for loops and while loops: if you declare a variable
+  in the initializer, it only exists in the for loop.
+
+
+7.6: The do-while loop
+  The while and for statements are called Pretest Loops, that is, they test the
+  condition first and at the beginning of each pass through the loop.
+
+  The do-while loop is an example of a Posttest Loop. This type of loop is useful
+  when you need to run the body of the loop at least once.
+
+  Example:
+
+    Scanner in = new Scanner(System.in);
+    boolean okay;
+    do {
+      System.out.println("Enter a number: ");
+      if (in.hasNextDouble()) {
+        okay = true;
+      } else {
+        okay = false;
+        String word = in.next();
+        System.err.println(word + " is not a number");
+      }
+    } while (!okay);
+    double x = in.nextDouble();
+
+
+
+  Although this code looks complicated, it is essentially only three steps:
+    1. Display a prompt
+    2. Check the input; if invalid, display an error and start over
+    3. Read the input
+
+
+
+7.7: Break and Continue
+  Sometimes neither a pretest or posttest loop will provide exactly what you need.
+  In the previous example, we used a flag variable and a nested if-else statement.
+
+  A simpler way to solve this problem is to use a break statement. When a program
+  reaches a break statement, it exits the current loop
+
+
+  Example:
+    Scanner in = new Scanner(System.in);
+    while (true){
+      System.out.println("Enter a number: ");
+      if (in.hasNextDouble()){
+        break;
+      }
+      String word = in.next();
+      System.err.println(word + " is not a number.");
+    }
+    double x = in.hasNextDouble();
+
+
+    ****Using true as a conditional in a while loop is an idiom that means "Loop forever",
+    or in this case, "loop until you get to a break statement"
+
+
+
+  In addition to the break statement, Java provides a continue statement that moves
+  on to the next iteration. For example, the following code reads integers from the
+  keyboard and computes a running total. The continue statment causes the program to
+  skip over any negative values.
+
+
+  Example:
+    Scanner in = new Scanner(System.in);
+    int x = -1;
+    int sum = 0;
+    while (x != 0){
+      x = in.nextInt();
+      if (x <= 0){
+        continue;
+      }
+      System.out.println("Adding "+x);
+      sum += x;
+    }
